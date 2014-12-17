@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements SelectCameraDialog.OnCameraSelected {
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -29,6 +29,22 @@ public class MainActivity extends ActionBarActivity {
 
     public void launchFragmentActivity(View v) {
         Intent intent = new Intent(this, ScannerFragmentActivity.class);
+        startActivity(intent);
+    }
+
+    public void launchMultipleCameraFragment(View v) {
+
+        SelectCameraDialog dialog = SelectCameraDialog.newInstance(this);
+        dialog.show(getSupportFragmentManager(), SelectCameraDialog.class.getName());
+
+
+
+    }
+
+    @Override
+    public void onCameraSelected(int cameraId) {
+        Intent intent = new Intent(this, MultipleCameraScannerFragmentActivity.class);
+        intent.putExtra(Constants.Extras.CAMERA_TO_START, cameraId);
         startActivity(intent);
     }
 }

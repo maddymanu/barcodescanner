@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">ZBar Scanner Sample</string>
     <string name="scanner_activity">ZBar Scanner - Full Activity</string>
     <string name="scanner_fragment_activity">ZBar Scanner - Full Fragment Activity</string>
@@ -17,4 +19,12 @@
     <string name="choose_formats">Choose Formats</string>
     <string name="ok_button">OK</string>
     <string name="cancel_button">Cancel</string>
+    <string name="multiple_camera_sample">Multiple Camera Sample</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="multiple_camera_scanner_fragment_activity">Multiple Camera Scanner - Fragment Activity</string>
+    <string name="front">Front Camera - ID: </string>
+    <string name="back">Back Camera - ID: </string>
+    <string name="error_camera_listener">Camera listener was not set. Did you forget to use the newInstance method to create the fragment?</string>
+    <string name="error_no_camera_id">No Camera ID found. Please make sure you provide an ID in the Intent.</string>
+
 </resources>
