@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.hardware.Camera;
-import android.os.AsyncTask;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
@@ -33,6 +32,15 @@ public abstract class BarcodeScannerView extends FrameLayout implements Camera.P
 
     public void startCamera() {
         mCamera = CameraUtils.getCameraInstance();
+        setupPreview();
+    }
+
+    public void startCamera(int cameraId) {
+        mCamera = CameraUtils.getCameraInstance(cameraId);
+        setupPreview();
+    }
+
+    private void setupPreview() {
         if(mCamera != null) {
             mViewFinderView.setupViewFinder();
             mPreview.setCamera(mCamera, this);
