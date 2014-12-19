@@ -25,14 +25,30 @@ import me.dm7.barcodescanner.core.BarcodeScannerView;
 import me.dm7.barcodescanner.core.DisplayUtils;
 
 public class ZXingScannerView extends BarcodeScannerView {
+    public void setmPreviewCallback(PreviewCallback mPreviewCallback) {
+        this.mPreviewCallback = mPreviewCallback;
+    }
+
     public interface ResultHandler {
         public void handleResult(Result rawResult);
     }
+
+    /**
+     * Interface for communicating with the caller. This
+     * interface will pass the preview data back tot he caller
+     * for each frame.
+     */
+    public interface PreviewCallback {
+        public void onPreviewFrame(byte[] data);
+    }
+
+
 
     private MultiFormatReader mMultiFormatReader;
     public static final List<BarcodeFormat> ALL_FORMATS = new ArrayList<BarcodeFormat>();
     private List<BarcodeFormat> mFormats;
     private ResultHandler mResultHandler;
+    private PreviewCallback mPreviewCallback;
 
     static {
         ALL_FORMATS.add(BarcodeFormat.UPC_A);
@@ -85,6 +101,11 @@ public class ZXingScannerView extends BarcodeScannerView {
 
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {
+
+        if(mPreviewCallback != null) {
+            mPreviewCallback.onPreviewFrame(data);
+        }
+
         Camera.Parameters parameters = camera.getParameters();
         Camera.Size size = parameters.getPreviewSize();
         int width = size.width;

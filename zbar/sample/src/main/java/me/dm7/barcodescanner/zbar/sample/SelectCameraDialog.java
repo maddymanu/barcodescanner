@@ -28,8 +28,10 @@ public class SelectCameraDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
         final List<String> cameras = new ArrayList<String>();
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+
         final int cameraCount = Camera.getNumberOfCameras();
         for ( int i = 0; i < cameraCount; i++ ) {
             Camera.getCameraInfo( i, cameraInfo );
