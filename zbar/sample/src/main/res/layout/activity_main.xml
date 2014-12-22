@@ -26,4 +26,8 @@
             android:layout_width="match_parent"
             android:text="@string/multiple_camera_sample"
             android:onClick="launchMultipleCameraFragment" />
+    <Button android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/multiple_camera_preview_sample"
+            android:onClick="launchMultiplePreviewActivity" />
 </LinearLayout>

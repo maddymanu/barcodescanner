@@ -57,5 +57,12 @@
             android:label="@string/multiple_camera_scanner_fragment_activity"
             android:theme="@style/AppOverlayTheme"
             />
+
+        <activity
+            android:name=".MultiplePreviewActivity"
+            android:label="@string/multiple_preview_activity"
+            android:theme="@style/AppOverlayTheme"
+            />
+
     </application>
 </manifest>

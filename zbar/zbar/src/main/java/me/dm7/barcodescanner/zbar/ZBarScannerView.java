@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import me.dm7.barcodescanner.core.BarcodeScannerView;
+import me.dm7.barcodescanner.core.CameraPreviewDescriptor;
 import me.dm7.barcodescanner.core.DisplayUtils;
 
 public class ZBarScannerView extends BarcodeScannerView {
@@ -34,7 +35,7 @@ public class ZBarScannerView extends BarcodeScannerView {
      * for each frame.
      */
     public interface PreviewCallback {
-        public void onPreviewFrame(byte[] data);
+        public void onPreviewFrame(CameraPreviewDescriptor descriptor);
     }
 
     static {
@@ -91,7 +92,11 @@ public class ZBarScannerView extends BarcodeScannerView {
     public void onPreviewFrame(byte[] data, Camera camera) {
 
         if(previewCallback != null) {
-            previewCallback.onPreviewFrame(data);
+            Camera.Parameters params = camera.getParameters();
+            Camera.Size s = params.getPreviewSize();
+            int previewFormat = params.getPreviewFormat();
+            CameraPreviewDescriptor descriptor = new CameraPreviewDescriptor(data, previewFormat, s.width, s.height);
+            previewCallback.onPreviewFrame(descriptor);
         }
 
         Camera.Parameters parameters = camera.getParameters();

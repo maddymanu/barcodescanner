@@ -33,12 +33,13 @@ public class MainActivity extends ActionBarActivity implements SelectCameraDialo
     }
 
     public void launchMultipleCameraFragment(View v) {
-
         SelectCameraDialog dialog = SelectCameraDialog.newInstance(this);
         dialog.show(getSupportFragmentManager(), SelectCameraDialog.class.getName());
+    }
 
-
-
+    public void launchMultiplePreviewActivity(View v) {
+        Intent intent = new Intent(this, MultiplePreviewActivity.class);
+        startActivity(intent);
     }
 
     @Override

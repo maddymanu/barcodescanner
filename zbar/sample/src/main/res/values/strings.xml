@@ -26,5 +26,7 @@
     <string name="back">Back Camera - ID: </string>
     <string name="error_camera_listener">Camera listener was not set. Did you forget to use the newInstance method to create the fragment?</string>
     <string name="error_no_camera_id">No Camera ID found. Please make sure you provide an ID in the Intent.</string>
+    <string name="multiple_preview_activity">Multiple Preview Activity</string>
+    <string name="multiple_camera_preview_sample">Multiple Camera Preview Sample</string>
 
 </resources>
