@@ -306,7 +306,7 @@ public abstract class BarcodeScannerView extends FrameLayout implements Camera.P
     public int getCameraPreviewRotation() {
         return mPreview.getCameraPreviewRotation();
     }
-}
+
 
     public void setShouldScaleToFill(boolean shouldScaleToFill) {
         mShouldScaleToFill = shouldScaleToFill;
